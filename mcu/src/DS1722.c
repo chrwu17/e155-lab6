@@ -13,10 +13,10 @@
 #include <stdint.h>
 
 void initTemperatureSensor(){
-    digitalWrite(SPI_CE, PIO_HIGH);
+    digitalWrite(SPI_CE, PIO_LOW);
     spiSendReceive(0x80);  
     spiSendReceive(0b11100100);
-    digitalWrite(SPI_CE, 0);
+    digitalWrite(SPI_CE, PIO_HIGH);
 }
 
 float updateTemperature(char request[]){
@@ -24,45 +24,52 @@ float updateTemperature(char request[]){
     uint8_t msb;
 
     if (inString(request, "8bit")==1) {
-    digitalWrite(SPI_CE, PIO_HIGH);
+    digitalWrite(SPI_CE, PIO_LOW);
     spiSendReceive(0x80);  
     spiSendReceive(0b11100000);
-    digitalWrite(SPI_CE, PIO_LOW);
+    digitalWrite(SPI_CE, PIO_HIGH);
+    delay_millis(TIM15, 250);
   }
   else if (inString(request, "9bit")==1) {
-    digitalWrite(SPI_CE, PIO_HIGH);
+    digitalWrite(SPI_CE, PIO_LOW);
     spiSendReceive(0x80);  
     spiSendReceive(0b11100010);
-    digitalWrite(SPI_CE, PIO_LOW);
+    digitalWrite(SPI_CE, PIO_HIGH);
+    delay_millis(TIM15, 250);
   }
   else if (inString(request, "10bit")==1) {
-    digitalWrite(SPI_CE, PIO_HIGH);
+    digitalWrite(SPI_CE, PIO_LOW);
     spiSendReceive(0x80);  
     spiSendReceive(0b11100100);
-    digitalWrite(SPI_CE, PIO_LOW);
+    digitalWrite(SPI_CE, PIO_HIGH);
+    delay_millis(TIM15, 250);
   }
   else if (inString(request, "11bit")==1) {
-    digitalWrite(SPI_CE, PIO_HIGH);
+    digitalWrite(SPI_CE, PIO_LOW);
     spiSendReceive(0x80);  
     spiSendReceive(0b11100110);
-    digitalWrite(SPI_CE, PIO_LOW);
+    digitalWrite(SPI_CE, PIO_HIGH);
+    delay_millis(TIM15, 250);
   }
   else if (inString(request, "12bit")==1) {
-    digitalWrite(SPI_CE, PIO_HIGH);
+    digitalWrite(SPI_CE, PIO_LOW);
     spiSendReceive(0x80);  
     spiSendReceive(0b11101110);
-    digitalWrite(SPI_CE, PIO_LOW);
+    digitalWrite(SPI_CE, PIO_HIGH);
+    delay_millis(TIM15, 250);
   }
   
-    digitalWrite(SPI_CE, PIO_HIGH);
+    digitalWrite(SPI_CE, PIO_LOW);
     spiSendReceive(0x01);
     lsb = spiSendReceive(0x45);
-    digitalWrite(SPI_CE, PIO_LOW);
-
     digitalWrite(SPI_CE, PIO_HIGH);
+    delay_millis(TIM15, 250);
+
+    digitalWrite(SPI_CE, PIO_LOW);
     spiSendReceive(0x02);
     msb = spiSendReceive(0x44);
-    digitalWrite(SPI_CE, PIO_LOW);
+    digitalWrite(SPI_CE, PIO_HIGH);
+    delay_millis(TIM15, 250);
 
     float temperature = msb + (lsb / 256.0);
 

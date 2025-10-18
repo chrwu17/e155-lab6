@@ -74,7 +74,7 @@ int main(void) {
   USART_TypeDef * USART = initUSART(USART1_ID, 125000);
 
   // TODO: Add SPI initialization code
-  initSPI(9600, 0, 1);
+  initSPI(0b111, 0, 1);
   initTemperatureSensor();
 
   while(1) {
@@ -113,6 +113,7 @@ int main(void) {
     // finally, transmit the webpage over UART
     sendString(USART, webpageStart); // webpage header code
     sendString(USART, ledStr); // button for controlling LED
+    sendString(USART, tempStr);
 
     sendString(USART, "<h2>LED Status</h2>");
     sendString(USART, "<p>");
