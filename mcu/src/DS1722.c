@@ -14,8 +14,8 @@
 #include <stdbool.h>
 
 void initTemperatureSensor(){
-    delay_millis(TIM15, 10);
     digitalWrite(SPI_CE, PIO_LOW);
+    delay_millis(TIM15, 10);
     spiSendReceive(0x80);  
     spiSendReceive(0b11100100);
     digitalWrite(SPI_CE, PIO_HIGH);

@@ -87,7 +87,7 @@ int main(void) {
     char request[BUFF_LEN] = "                  "; // initialize to known value
     int charIndex = 0;
   
-    uint8_t precision;
+    uint8_t precision = 0b11100100;
 
     // Keep going until you get end of line character
     while(inString(request, "\n") == -1) {
