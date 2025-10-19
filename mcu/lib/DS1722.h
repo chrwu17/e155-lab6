@@ -15,8 +15,6 @@
 
 void initTemperatureSensor(void);
 
-float updateTemperature(char request[]);
-
-int inString(char request[], char des[]);
+double updateTemperature(uint8_t precision);
 
 #endif

@@ -21,4 +21,5 @@ Output/Debug/Obj/lab6_cw/DS1722.o: \
   /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC_TIM.h \
   /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC_FLASH.h \
   /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC_USART.h \
-  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC_SPI.h
+  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC_SPI.h \
+  /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/stdbool.h

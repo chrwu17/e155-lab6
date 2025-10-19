@@ -87,6 +87,8 @@ int main(void) {
     char request[BUFF_LEN] = "                  "; // initialize to known value
     int charIndex = 0;
   
+    uint8_t precision;
+
     // Keep going until you get end of line character
     while(inString(request, "\n") == -1) {
       // Wait for a complete request to be transmitted before processing
@@ -94,11 +96,27 @@ int main(void) {
       request[charIndex++] = readChar(USART);
     }
 
+    if (inString(request, "8bit")==1) {
+        precision = 0b11100000;
+    }
+    else if (inString(request, "9bit")==1) {
+        precision = 0b11100010;
+    }
+    else if (inString(request, "10bit")==1) {
+        precision = 0b11100100;
+    }
+    else if (inString(request, "11bit")==1) {
+        precision = 0b11100110;
+    }
+    else if (inString(request, "12bit")==1) {
+        precision = 0b11101110;
+    }
+
     // TODO: Add SPI code here for reading temperature
-    float temp = updateTemperature(request);
+    double temp = updateTemperature(precision);
 
     char tempStatusStr[32];
-    sprintf(tempStatusStr, "Temperature %f C", temp);
+    sprintf(tempStatusStr, "Temperature %.4f C", temp);
 
     // Update string with current LED state
   
