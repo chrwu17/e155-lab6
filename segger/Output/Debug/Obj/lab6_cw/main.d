@@ -1,14 +1,13 @@
 Output/Debug/Obj/lab6_cw/main.o: \
   /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/main.c \
-  /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/string.h \
+  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/main.h \
+  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC.h \
+  /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/stdio.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/__SEGGER_RTL.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/__SEGGER_RTL_ConfDefaults.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/__SEGGER_RTL_Conf.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/__SEGGER_RTL_Arm_Conf.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/stdlib.h \
-  /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/stdio.h \
-  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/main.h \
-  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.24/include/stdint.h \
   /Users/christian/Desktop/MicroPs/e155-lab6/segger/STM32L4xx/Device/Include/stm32l432xx.h \
   /Users/christian/Desktop/MicroPs/e155-lab6/segger/CMSIS_5/CMSIS/Core/Include/core_cm4.h \
@@ -23,4 +22,5 @@ Output/Debug/Obj/lab6_cw/main.o: \
   /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC_FLASH.h \
   /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC_USART.h \
   /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/STM32L432KC_SPI.h \
-  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/DS1722.h
+  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/DS1722.h \
+  /Users/christian/Desktop/MicroPs/e155-lab6/mcu/src/../lib/webpage.h

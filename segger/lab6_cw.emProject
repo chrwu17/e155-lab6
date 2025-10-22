@@ -70,6 +70,7 @@
         <file file_name="../mcu/lib/STM32L432KC_SPI.h" />
         <file file_name="../mcu/lib/STM32L432KC_TIM.h" />
         <file file_name="../mcu/lib/STM32L432KC_USART.h" />
+        <file file_name="../mcu/lib/webpage.h" />
       </folder>
       <folder Name="src">
         <file file_name="../mcu/src/DS1722.c" />
@@ -80,6 +81,7 @@
         <file file_name="../mcu/src/STM32L432KC_SPI.c" />
         <file file_name="../mcu/src/STM32L432KC_TIM.c" />
         <file file_name="../mcu/src/STM32L432KC_USART.c" />
+        <file file_name="../mcu/src/webpage.c" />
       </folder>
     </folder>
     <folder Name="System Files">

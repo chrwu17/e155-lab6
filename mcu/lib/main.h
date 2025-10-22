@@ -16,6 +16,7 @@
 #include "STM32L432KC_SPI.h"
 #include "STM32L432KC_TIM.h"
 #include "DS1722.h"
+#include "webpage.h"
 
 #define LED_PIN PA6
 #define BUFF_LEN 32

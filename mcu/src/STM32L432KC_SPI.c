@@ -1,9 +1,3 @@
-// Christian Wu
-// chrwu@g.hmc.edu
-// 10/17/25
-
-// Taken from E155 Course Website
-
 // STM32L432KC_SPI.c
 // Source code for SPI functions
 
@@ -24,6 +18,8 @@ void initSPI(int br, int cpol, int cpha) {
     
     RCC->APB2ENR |= RCC_APB2ENR_SPI1EN; // Turn on SPI1 clock domain (SPI1EN bit in APB2ENR)
 
+    gpioEnable(GPIO_PORT_A);
+    gpioEnable(GPIO_PORT_B);
     // Initially assigning SPI pins
     pinMode(SPI_SCK, GPIO_ALT); // SPI1_SCK
     pinMode(SPI_CIPO, GPIO_ALT); // SPI1_CIPO
@@ -33,8 +29,6 @@ void initSPI(int br, int cpol, int cpha) {
     // Set output speed type to high for SCK
     GPIOB->OSPEEDR |= (GPIO_OSPEEDR_OSPEED3);
 
-    digitalWrite(SPI_CE, PIO_HIGH);
-
     // Set to AF05 for SPI alternate functions
     GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL3, 5);
     GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL4, 5);
@@ -43,8 +37,7 @@ void initSPI(int br, int cpol, int cpha) {
     SPI1->CR1 |= _VAL2FLD(SPI_CR1_BR, br); // Set baud rate divider
 
     SPI1->CR1 |= (SPI_CR1_MSTR);
-    SPI1->CR1 &= ~(SPI_CR1_CPOL | SPI_CR1_CPHA | SPI_CR1_LSBFIRST);
-    SPI1->CR1 |= (SPI_CR1_SSM | SPI_CR1_SSI);
+    SPI1->CR1 &= ~(SPI_CR1_CPOL | SPI_CR1_CPHA | SPI_CR1_LSBFIRST | SPI_CR1_SSM);
     SPI1->CR1 |= _VAL2FLD(SPI_CR1_CPHA, cpha);
     SPI1->CR1 |= _VAL2FLD(SPI_CR1_CPOL, cpol);
     SPI1->CR2 |= _VAL2FLD(SPI_CR2_DS, 0b0111);

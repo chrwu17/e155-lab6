@@ -17,7 +17,7 @@
 // Definitions
 ///////////////////////////////////////////////////////////////////////////////
 
-#define SPI_CE PA11
+#define SPI_CE PA8
 #define SPI_SCK PB3
 #define SPI_COPI PB5
 #define SPI_CIPO PB4

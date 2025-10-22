@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temperature Sensor Dashboard</title>
+  <style>
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #334155;
+      border-radius: 16px;
+      padding: 2rem 3rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      color: #f8fafc;
+    }
+
+    .temperature {
+      font-size: 3rem;
+      font-weight: 600;
+      margin: 1rem 0;
+      color: #38bdf8;
+    }
+
+    button {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    .led-indicator {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-left: 10px;
+      display: inline-block;
+      background-color: gray;
+      vertical-align: middle;
+    }
+
+    select {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🌡️ Temperature Sensor</h1>
+    <div class="temperature" id="tempValue">-- °C</div>
+
+    <label for="precisionSelect">Precision</label>
+    <select id="precisionSelect">
+      <option value="0.5">0.5 °C</option>
+      <option value="0.25">0.25 °C</option>
+      <option value="0.125">0.125 °C</option>
+      <option value="0.0625">0.0625 °C</option>
+    </select>
+
+    <div style="margin-top: 1.5rem;">
+      <button id="ledToggle">
+        Toggle LED
+        <span id="ledIndicator" class="led-indicator"></span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const tempDisplay = document.getElementById('tempValue');
+    const ledButton = document.getElementById('ledToggle');
+    const ledIndicator = document.getElementById('ledIndicator');
+    const precisionSelect = document.getElementById('precisionSelect');
+
+    let ledOn = false;
+    let precision = 0.5;
+
+    // Simulate fetching data from backend
+    function fetchTemperature() {
+      // Replace with: fetch('/api/temperature')...
+      const temp = (20 + Math.random() * 5).toFixed(2);
+      tempDisplay.textContent = `${temp} °C`;
+    }
+
+    function toggleLED() {
+      ledOn = !ledOn;
+      ledIndicator.style.backgroundColor = ledOn ? '#22c55e' : 'gray';
+      // Example backend call:
+      // fetch('/api/led', { method: 'POST', body: JSON.stringify({ state: ledOn }) })
+    }
+
+    function changePrecision() {
+      precision = parseFloat(precisionSelect.value);
+      // Example backend call:
+      // fetch('/api/precision', { method: 'POST', body: JSON.stringify({ precision }) })
+      console.log("Precision changed to:", precision);
+    }
+
+    ledButton.addEventListener('click', toggleLED);
+    precisionSelect.addEventListener('change', changePrecision);
+
+    // Update temperature every 2 seconds
+    setInterval(fetchTemperature, 2000);
+    fetchTemperature();
+  </script>
+</body>
+</html>
